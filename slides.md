@@ -117,7 +117,20 @@ Note:
 
 ---
 
-# How to use Docker?
+## How to use Docker?
+
+----
+
+### The client
+
+![](images/docker_command.png)
+
+
+----
+
+### The Big Picture
+
+![](images/docker_concept.png)
 
 ---
 
