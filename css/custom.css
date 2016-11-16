@@ -22,3 +22,9 @@ img{
 .me li a {
     margin-left: 15px;
 }
+
+.reveal pre code{
+    font-size: .8em;
+    line-height: 1em;
+    max-height: 500px;
+}
