@@ -262,7 +262,7 @@ Run a command in a new container
 ### Run an interactive container
 
 ```sh
-bebatut$ bebatut$ docker run -t -i docker/whalesay
+bebatut$ docker run -t -i docker/whalesay
 root@7de97f8dd5eb:/cowsay#
 root@7de97f8dd5eb:/cowsay# cowsay Galaxy
  ________
@@ -301,7 +301,87 @@ bebatut$ docker run -i -t
 
 ----
 
-### Data persistence and volumes
+### Management of data
+
+```sh
+bebatut$ mkdir data
+bebatut$ docker run docker/whalesay cowsay Galaxy > data/cowsay
+bebatut$ more data/cowsay
+ ________
+< Galaxy >
+ --------
+    \
+     \
+      \
+                    ##        .
+              ## ## ##       ==
+           ## ## ## ##      ===
+       /""""""""""""""""___/ ===
+  ~~~ {~~ ~~~~ ~~~ ~~~~ ~~ ~ /  ===- ~~~
+       \______ o          __/
+        \    \        __/
+          \____\______/
+bebatut$ docker run -t -i docker/whalesay
+root@f4fa8ed32ef8:/cowsay# ls
+ChangeLog  INSTALL  LICENSE  MANIFEST  README  Wrap.pm.diff  cows  cowsay  cowsay.1  install.pl  install.sh  pgp_public_key.txt
+root@f4fa8ed32ef8:/cowsay# cowsay Hello Galaxy > cowsay2
+```
+
+Can we access the `cowsay` file inside the container? <br>And the `cowsay2` file outside the container?
+
+----
+
+### Management of data
+
+![](images/docker_volume_closed.png)
+
+Note: A container is closed
+
+----
+
+### Management of data
+
+![](images/docker_volume_open.png)
+
+Note: A container is closed
+
+----
+
+### Data volume
+
+![](images/docker_volume.png)
+
+Note:
+- Volumes are initialized when a container is created
+- Data volumes can be shared and reused among containers
+- Changes to a data volume are made directly
+- Changes to a data volume will not be included when you update an image.
+- Data volumes persist even if the container itself is deleted.
+Data volumes are designed to persist data, independent of the container’s life cycle
+
+----
+
+### Data volume
+
+![](images/docker_run_volume.png)
+
+----
+
+### Data volume
+
+```sh
+bebatut$ ls data/
+cowsay_Galaxy
+bebatut$ docker run -t -i -v path/to/data:/data docker/whalesay
+root@f4fa8ed32ef8:/cowsay# ls /data
+cowsay_Galaxy
+root@f4fa8ed32ef8:/cowsay# cowsay Galaxy2 > /data/cowsay_Galaxy2
+root@f4fa8ed32ef8:/cowsay# ls /data
+cowsay_Galaxy  cowsay_Galaxy2
+root@f4fa8ed32ef8:/cowsay# exit
+bebatut$ ls data/
+cowsay_Galaxy	cowsay_Galaxy2
+```
 
 ----
 
@@ -441,8 +521,8 @@ e9195b6512dd        a2107450fdf2           "/usr/local/bin/tini "   2 weeks ago 
 
 ---
 
-# How to containerize your tools?
+## How to containerize your tools?
 
 ---
 
-# How to make it interact with other containerized tools?
+## How to make it interact with other containerized tools?

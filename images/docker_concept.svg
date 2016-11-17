@@ -18,8 +18,8 @@
    inkscape:version="0.91 r13725"
    sodipodi:docname="docker_concept.svg"
    inkscape:export-filename="/Users/bebatut/Documents/post_doc_freiburg/training/2016/docker_foundry_ws_12_16/images/docker_concept_push.png"
-   inkscape:export-xdpi="35.423923"
-   inkscape:export-ydpi="35.423923">
+   inkscape:export-xdpi="82.138252"
+   inkscape:export-ydpi="82.138252">
   <defs
      id="defs4">
     <marker
@@ -259,7 +259,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.49497475"
-     inkscape:cx="243.61348"
+     inkscape:cx="486.05009"
      inkscape:cy="775.68156"
      inkscape:document-units="px"
      inkscape:current-layer="layer2"
@@ -2698,7 +2698,7 @@ CCGEEEIIIYQQQgghxIrhXx9rS7tAeQW0AAAAAElFTkSuQmCC
        xml:space="preserve"
        id="flowRoot4138"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#969696;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       transform="translate(645.60013,-20.20305)"><flowRegion
+       transform="translate(603.45169,-20.20305)"><flowRegion
          id="flowRegion4140"><rect
            id="rect4142"
            width="496.99506"
@@ -2706,7 +2706,7 @@ CCGEEEIIIYQQQgghxIrhXx9rS7tAeQW0AAAAAElFTkSuQmCC
            x="-282.84271"
            y="-16.379189"
            style="fill:#969696;fill-opacity:1" /></flowRegion><flowPara
-         id="flowPara4144">Host OS</flowPara></flowRoot>    <rect
+         id="flowPara4144">Docker Host</flowPara></flowRoot>    <rect
        style="fill:none;fill-opacity:1;stroke:#969696;stroke-width:10;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect4136-8"
        width="436.58914"
