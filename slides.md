@@ -519,6 +519,12 @@ e9195b6512dd        a2107450fdf2           "/usr/local/bin/tini "   2 weeks ago 
 
 ![](images/docker_concept.png)
 
+----
+
+### <i class="fa fa-pencil"></i> Hands on!
+
+Play with ...
+
 ---
 
 ## How to containerize your tools?
@@ -761,4 +767,54 @@ Create an image for ....
 
 ---
 
-## How to make it interact with other containerized tools?
+![](images/BioContainers.png)
+
+----
+
+### BioContainers?
+
+> A community-driven project that provides <br>the infrastructure and basic guidelines to <br>create, manage and distribute <br>Bioinformatics Docker containers
+
+[http://biocontainers.pro/](http://biocontainers.pro/)
+
+----
+
+### 2017 BioContainers
+
+![](images/biocontainers_registry.png)
+
+<small>[http://biocontainers.pro/registry/](http://biocontainers.pro/registry/#/)</small>
+
+----
+
+### BioContainers specifications
+
+```sh
+# Base Image
+FROM biocontainers/biocontainers:latest
+
+# Metadata
+LABEL base.image="biocontainers:latest"
+LABEL version="3"
+LABEL software="Comet"
+LABEL software.version="2016012"
+LABEL description="an open source tandem mass spectrometry sequence database search tool"
+LABEL website="http://comet-ms.sourceforge.net/"
+LABEL documentation="http://comet-ms.sourceforge.net/parameters/parameters_2016010/"
+LABEL license="http://comet-ms.sourceforge.net/"
+LABEL tags="Proteomics"
+
+# Maintainer
+MAINTAINER Felipe da Veiga Leprevost
+```
+
+----
+
+### Too much work to write a Dockerfile?
+We have THE solution: Mulled
+
+![](images/mulled_scheme.png)
+
+---
+
+## How to make your <br>containerized tools interact?
