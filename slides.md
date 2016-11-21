@@ -10,6 +10,8 @@ The easiest way to navigate this slide deck is by hitting `[space]`on your keybo
 
 ### Docker, its possibilities and how to start
 
+![](images/docker_toolbox.png)
+
 Bérénice Batut
 
 <small>
@@ -28,7 +30,6 @@ Note: How many of you have already
 1. Why Docker? What is it?
 2. How to use Docker?
 3. How to containerize your tools?
-4. How to make it interact with other containerized tools?
 
 ---
 
@@ -821,89 +822,5 @@ We have THE solution: Mulled
 
 ![](images/mulled_scheme.png)
 
----
-
-## How to make a tool out of <br>your containerized tools?
-
-![](images/docker-compose.png)
-
-----
-
-### A meta-container?
-
-![](images/docker_compose_concept_without_compose.png)
-
-----
-
-### Docker compose
-
-![](images/docker_compose_concept.png)
-
-----
-
-### [`docker-compose.yml` file](https://docs.docker.com/compose/compose-file)
-
-```
-bc:
-  image: quay.io/biocontainers/bc:1
-curl:
-  image: quay.io/biocontainers/curl:7.45.0--1
-main:
-  image: biocontainers/biocontainers
-  links:
-    - bc
-    - curl
-  entrypoint: /bin/sh
-  stdin_open: true
-  tty: true
-```
-
-----
-
-### Building the meta-container
-
-```sh
-bebatut$ docker-compose up -d
-Pulling main (biocontainers/biocontainers:latest)...
-latest: Pulling from biocontainers/biocontainers
-6bbedd9b76a4: Already exists
-fc19d60a83f1: Already exists
-de413bb911fd: Already exists
-2879a7ad3144: Already exists
-668604fde02e: Already exists
-f0f616d8b576: Pull complete
-8a16e32fc8c2: Pull complete
-bf9090240a8f: Pull complete
-c9c6b7d0202a: Pull complete
-3c93f8239761: Pull complete
-bdc9ac3506a3: Pull complete
-6137b8494676: Pull complete
-751d5fbcb26b: Pull complete
-3b14b281b115: Pull complete
-4c7846950de1: Pull complete
-740e5d9a9ec7: Pull complete
-Digest: sha256:0e913b0c14ad8cd79607297793e87fd7d9806ced739fd43d7f93f708302a678e
-Status: Downloaded newer image for biocontainers/biocontainers:latest
-Starting toolinteraction_curl_1
-Starting toolinteraction_bc_1
-Creating toolinteraction_main_1
-Attaching to toolinteraction_bc_1, toolinteraction_curl_1, toolinteraction_main_1
-toolinteraction_bc_1 exited with code 0
-toolinteraction_curl_1 exited with code 0
-toolinteraction_main_1 exited with code 0
-```
-
-----
-
-### `docker-compose ps`
-
-```
-bebatut$ docker-compose ps
-         Name             Command    State    Ports
----------------------------------------------------
-toolinteraction_bc_1     /bin/sh     Exit 0
-toolinteraction_curl_1   /bin/sh     Exit 0
-toolinteraction_main_1   /bin/bash   Exit 0
-```
 
 
