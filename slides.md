@@ -34,6 +34,8 @@ Note: How many of you have already
 
 ## Why Docker? <br>What is it?
 
+![](images/docker_whale.png)
+
 ----
 
 ### Reproducibility in bioinformatics
@@ -118,6 +120,8 @@ Note:
 ---
 
 ## How to use Docker?
+
+![](images/docker-usage.jpg)
 
 ----
 
@@ -529,6 +533,8 @@ Play with ...
 
 ## How to containerize your tools?
 
+![](images/docker-container.jpg)
+
 ----
 
 ### How to create your image?
@@ -818,3 +824,7 @@ We have THE solution: Mulled
 ---
 
 ## How to make your <br>containerized tools interact?
+
+![](images/docker-compose.png)
+
+----
