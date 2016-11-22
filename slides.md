@@ -526,9 +526,30 @@ e9195b6512dd        a2107450fdf2           "/usr/local/bin/tini "   2 weeks ago 
 
 ----
 
-### <i class="fa fa-pencil"></i> Hands on!
+### <i class="fa fa-pencil"></i> Hands on! (1)
 
-Play with ...
+Play with `quay.io/biocontainers/samtools:1.3--1`:
+
+1. Get the image
+2. Launch `samtools` container interactively
+  1. Print the help page for `samtools`
+3. Launch a `samtools` container in detach mode
+  1. Check if it exists and find its name
+  2. Stop it and restart it
+  3. Print the help page using this container
+
+----
+
+### <i class="fa fa-pencil"></i> Hands on! (2)
+
+Play with `quay.io/biocontainers/samtools:1.3--1`:
+
+1. Create locally a `samtool_dir` directory
+2. Launch an interactive container with a volume pointing at `samtool_dir` directory
+  1. Add a [toy sam file](https://raw.githubusercontent.com/samtools/samtools/develop/examples/toy.sam) into the local `samtool_dir` directory
+  2. Check if the existence of the file from inside the container
+  3. Visualize the content of the toy file with `samtools view` commands
+  4. Generate stats of the toy file into a `toy_stat` file into the local `samtool_dir` directory
 
 ---
 
