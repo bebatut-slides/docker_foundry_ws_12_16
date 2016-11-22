@@ -815,14 +815,65 @@ LABEL tags="Proteomics"
 
 # Maintainer
 MAINTAINER Felipe da Veiga Leprevost
+
+...
 ```
 
 ----
 
-### Too much work to write a Dockerfile?
-We have THE solution: Mulled
+### Too much work to write a <br>BioContainer for a single tool?
 
 ![](images/mulled_scheme.png)
+
+----
+
+### ![](images/conda_logo.png)
+
+- Open Source package manager
+- Independent of any programming language and OS
+- Fast, robust and easy package installation
+
+  ```
+  $ conda install deeptools
+  ```
+  
+- Installation and management of multiple versions
+
+Note: 
+- Independent of any programming language and OS: if developed first for python tools
+- Less than 1 minute to install deeptools with conda
+
+----
+
+### A Conda package<br><i class="fa fa-long-arrow-right"></i> Easy to write!
+
+![](images/conda_package.png)
+
+
+
+Note: Only 2 files + Extensive documentation
+
+----
+
+### ![](images/bioconda_logo.png)<br>for bioinformatics tools
+
+![](images/tool_development_bioconda_solution.png)
+
+- More than 1,700 bioinformatics packages
+- Big, fast-growing and newcomer-friendly community
+
+Note: 
+- Bioconda: a distribution of bioinformatics softwares using Conda
+- Started a year ago
+- Big (how much?)
+If you have a tool, we recommend you to develop a bioconda package for this
+
+
+----
+
+### <i class="fa fa-pencil"></i> Hands on!
+
+Develop a BioContainer for your favorite tool
 
 
 
