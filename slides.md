@@ -8,9 +8,8 @@ The easiest way to navigate this slide deck is by hitting `[space]`on your keybo
 
 ---
 
-### Docker, its possibilities and how to start
+![](images/docker-for-beginners.png)
 
-![](images/docker_toolbox.png)
 
 Bérénice Batut
 
