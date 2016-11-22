@@ -772,9 +772,7 @@ bebatut$ docker build -f /path/to/a/Dockerfile .
 
 ### <i class="fa fa-pencil"></i> Hands on!
 
-Create an image for ....
-
-<i class="fa fa-lightbulb-o"></i> A Bioconda package exist for this tool
+Create an image for your favorite tool
 
 ---
 
