@@ -644,6 +644,8 @@ ADD ./bashrc $GALAXY_HOME/.bashrc
 ...
 ```
 
+<i class="fa fa-exclamation-triangle"></i> `COPY` is functionally similar to `ADD` but is preferred
+
 Note: copies new files, directories or remote file URLs from <src> and adds them to the filesystem of the container at the path <dest>
 
 rules:
@@ -657,6 +659,8 @@ rules:
 - If multiple <src> resources are specified, either directly or due to the use of a wildcard, then <dest> must be a directory, and it must end with a slash /
 - If <dest> does not end with a trailing slash, it will be considered a regular file and the contents of <src> will be written at <dest>
 - If <dest> doesn’t exist, it is created along with all missing directories in its path
+
+COPY is more transparent than ADD. COPY only supports the basic copying of local files into the container, while ADD has some features (like local-only tar extraction and remote URL support) that are not immediately obvious. Consequently, the best use for ADD is local tar file auto-extraction into the image
 
 ----
 
