@@ -875,5 +875,9 @@ If you have a tool, we recommend you to develop a bioconda package for this
 
 Develop a BioContainer for your favorite tool
 
+---
 
+### Thank You!
+
+![](images/docker_concept.png)
 
