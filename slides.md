@@ -96,12 +96,11 @@ Note: An engine that enables any payload to be encapsulated as a lightweight, po
 
 ![](images/WhatIsDocker_1_kernal-2_1.png)
 
-Lightweight, Open, Secure by default
+Lightweight and Open
 
 Note:
 - lightweight: same OS kernel, instant start, less RAM use
 - open: open standard, run on all major unix distributions and windows
-- secure by default: containers isolate applications from one another and the underlying infrastructure
 
 ----
 
@@ -656,7 +655,7 @@ Note: any commands in a new layer on top of the current image and commit the res
 
 ----
 
-### The instructions <br>[`ADD`](https://docs.docker.com/engine/reference/builder/#add)
+### The instructions <br>[`ADD`](https://docs.docker.com/engine/reference/builder/#add)/[`COPY`](https://docs.docker.com/engine/reference/builder/#copy)
 
 ```sh
 ...
