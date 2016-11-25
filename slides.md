@@ -754,6 +754,13 @@ Note:
 
 ----
 
+### Dockerfile & Layers
+
+![](images/dockerfile_layers.png)
+
+
+----
+
 ### [Best practices](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/)
 
 - Containers should be ephemeral
