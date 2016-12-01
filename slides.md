@@ -38,13 +38,14 @@ Note: How many of you have already
 
 ----
 
-### Reproducibility in bioinformatics
+### Deployment issues of bioinformatics tools
 
-Deployment issues
-- Different environment
+- Different environments
 - Different OS
 - Different packaging
 - Conflict between tools or versions
+
+<i class="fa fa-long-arrow-right"></i> Impact on reproducibility
 
 ----
 
@@ -518,12 +519,6 @@ e9195b6512dd        a2107450fdf2           "/usr/local/bin/tini "   2 weeks ago 
 
 ----
 
-### Docker in a picture
-
-![](images/docker_concept.png)
-
-----
-
 ### <i class="fa fa-pencil"></i> Hands on! (1)
 
 Play with `quay.io/biocontainers/samtools:1.3--1`:
@@ -758,6 +753,13 @@ Note:
 
 ![](images/dockerfile_layers.png)
 
+----
+
+### Creating the image
+
+```sh
+bebatut$ docker build -f /path/to/a/Dockerfile .
+```
 
 ----
 
@@ -785,14 +787,6 @@ Note:
 - Sort multi-line arguments
     Whenever possible, ease later changes by sorting multi-line arguments alphanumerically. This will help you avoid duplication of packages and make the list much easier to update. This also makes PRs a lot easier to read and review. Adding a space before a backslash (\) helps as well.
 - Build cache
-
-----
-
-### Creating the image
-
-```sh
-bebatut$ docker build -f /path/to/a/Dockerfile .
-```
 
 ----
 
