@@ -17,7 +17,10 @@ Bérénice Batut
 University of Freiburg<br><br>3rd Systems Biology Developers Foundry <br>Frankfurt - December 2016
 </small>
 
-Note: How many of you have already
+Note: 
+Please interrupt me if you have any question.
+
+How many of you have already
 - heard about Docker?
 - used Docker?
 - create a Docker container?
@@ -45,7 +48,7 @@ Note: How many of you have already
 - Different packaging
 - Conflict between tools or versions
 
-<i class="fa fa-long-arrow-right"></i> Impact on reproducibility
+<i class="fa fa-long-arrow-right"></i> Impact on usuability and reproducibility
 
 ----
 
@@ -81,7 +84,14 @@ Matrix from Hell
 
 ![](images/cargo_transport_container.png)
 
-Note: A standard container that is loaded with virtually any goods and stays sealed until it reaches final delivery. In btw can be loaded and unloaded, stacked, transported efficiently over long distances and transferred from one mode of transport to another
+Note: A standard container
+- Virtually loading any goods
+- Sealed until it reaches final delivery
+- Can be 
+  - loaded and unloaded
+  - stacked
+  - transported efficiently over long distances
+  - transferred from one mode of transport to another
 
 ----
 
@@ -89,7 +99,12 @@ Note: A standard container that is loaded with virtually any goods and stays sea
 
 ![](images/deployment_issue_docker.png)
 
-Note: An engine that enables any payload to be encapsulated as a lightweight, portable, self sufficient container, that can be manipulated using standard operations and run consistently on virtually any hardware platform
+Note: Docker = An engine that encapsulated any tools as a 
+- lightweight
+- portable
+- self sufficient container
+- manipulated using standard operations
+- run consistently on virtually any hardware platform
 
 ----
 
@@ -112,10 +127,16 @@ Note:
 Containers more portable and efficient
 
 Note:
-- Similar resource isolation and allocation benefits for containers and VM
-- but a different architectural approach
-- VM: include the application, the necessary binaries and libraries, and an entire guest operating system -- all of which can amount to tens of GBs
-- Container: application and all of its dependencies --but share the kernel with other containers, running as isolated processes in user space on the host operating system
+
+Similar resource isolation and allocation benefits
+
+*but* a different architectural approach
+
+- VM: application +  necessary binaries and libraries + entire guest operating system 
+  - All of which can amount to tens of GBs
+- Container: application and all of its dependencies 
+  - Share the kernel with other containers
+  - Rnning as isolated processes in user space on the host operating system
 
 ---
 
@@ -129,7 +150,11 @@ Note:
 
 ![](images/docker_command.png)
 
-Note: Add a scheme?
+Note: Docker Engine = the core Docker technology on your computer
+
+Client: to talk with Docker
+
+`docker --help`
 
 ----
 
@@ -137,11 +162,31 @@ Note: Add a scheme?
 
 ![](images/docker_concept_image_container.png)
 
+Note:
+
+Image: 
+- recipe that tell how to build your container
+- A filesystem and parameters to use at runtime
+- snapshot of the content of a container: it doesn’t have state and never changes once built
+
+Container
+- a running instance of an image
+- you can execute several time the same recipe and if you follow every time the same recipe, you will have the same meal several time. Same for containers
+
 ----
 
 ### How to get images?
 
 ![](images/docker_concept_pull.png)
+
+Note: Docker Registry: 
+
+- stateless
+- highly scalable server side application 
+
+to stores and distribute Docker images
+
+Example: docker hub, quay.io
 
 ----
 
@@ -303,6 +348,8 @@ bebatut$ docker run -i -t
     quay.io/bgruening/galaxy
 ```
 
+Note: possibility to add many different parameters to control the container when starting it
+
 ----
 
 ### Management of data
@@ -356,18 +403,25 @@ Note: A container is closed
 ![](images/docker_volume.png)
 
 Note:
-- Volumes are initialized when a container is created
-- Data volumes can be shared and reused among containers
-- Changes to a data volume are made directly
-- Changes to a data volume will not be included when you update an image.
-- Data volumes persist even if the container itself is deleted.
-Data volumes are designed to persist data, independent of the container’s life cycle
+
+Data volume 
+- a specially-designated directory 
+- within one or more containers 
+- bypasses the Union File System
+
+Data volumes designed to persist data, independent of the container’s life cycle:
+- Initialisation when a container is created
+- Possibility of sharing and reusing among containers
+- Direct changes to a data volume
+- Persistence of data volumes even if the container itself is deleted
 
 ----
 
 ### Data volume
 
 ![](images/docker_run_volume.png)
+
+Note: How to get a data volume?
 
 ----
 
@@ -376,7 +430,7 @@ Data volumes are designed to persist data, independent of the container’s life
 ```sh
 bebatut$ ls data/
 cowsay_Galaxy
-bebatut$ docker run -t -i -v path/to/data:/data docker/whalesay
+bebatut$ docker run -t -i -v $PWD/data:/data docker/whalesay
 root@f4fa8ed32ef8:/cowsay# ls /data
 cowsay_Galaxy
 root@f4fa8ed32ef8:/cowsay# cowsay Galaxy2 > /data/cowsay_Galaxy2
@@ -499,11 +553,15 @@ da45ab698f58        fb77c13d04c0           "/usr/local/bin/tini "   13 days ago 
 e9195b6512dd        a2107450fdf2           "/usr/local/bin/tini "   2 weeks ago         Created                                             thirsty_bardeen
 ```
 
+Note: Name of containers and id
+
 ----
 
 ### Creation of a new image
 
 ![](images/docker_concept_build.png)
+
+Note: Need a Dockerfile. I will describe it later. Here it is just to give you a broad overview of the principles 
 
 ----
 
@@ -544,11 +602,15 @@ Play with `quay.io/biocontainers/samtools:1.3--1`:
   3. Visualize the content of the toy file with `samtools view` commands
   4. Generate stats of the toy file into a `toy_stat` file into the local `samtool_dir` directory
 
+Note: data volume is the way to make your tool connecting 
+
 ---
 
 ## How to containerize your tools?
 
 ![](images/docker-container.jpg)
+
+Note: Now I am sure all of you want to containerize his tool :)
 
 ----
 
@@ -566,6 +628,10 @@ A text document that contains all the commands a user could call on the command 
 # Comment
 INSTRUCTION arguments
 ```
+
+Note: the paper describing the recipe for you container
+
+Review of the commands
 
 ----
 
@@ -586,8 +652,11 @@ FROM toolshed/requirements
 
 Note: the Base Image for subsequent instructions
 
+Important in any Dockerfile
+
 - FROM must be the first non-comment instruction in the Dockerfile.
-- FROM can appear multiple times within a single Dockerfile in order to create multiple images. Simply make a note of the last image ID output by the commit before each new FROM command
+- FROM can appear multiple times within a single Dockerfile in order to create multiple images
+  Simply make a note of the last image ID output by the commit before each new FROM command
 
 ----
 
@@ -614,7 +683,9 @@ GALAXY_CONFIG_DIR=/etc/galaxy
 ...
 ```
 
-Note: sets the environment variable
+Note: sets the environment variable <key>=<value>
+
+Value in the environment of all “descendant” Dockerfile commands
 
 ----
 
@@ -646,7 +717,11 @@ RUN apt-get -qq update && apt-get install --no-install-recommends -y apt-transpo
 ...
 ```
 
-Note: any commands in a new layer on top of the current image and commit the results
+Note: 
+
+- Execution of any commands in a new layer on top of the current image and commit the results
+- shell form
+- \ (backslash) to continue a single RUN instruction onto the next line
 
 ----
 
@@ -662,19 +737,19 @@ ADD ./bashrc $GALAXY_HOME/.bashrc
 
 Note: copies new files, directories or remote file URLs from <src> and adds them to the filesystem of the container at the path <dest>
 
-rules:
+- <src> path inside the context of the build
+- <dest> an absolute path, or a path relative to WORKDIR
 
-- The <src> path must be inside the context of the build
-- If <src> is a URL and <dest> does not end with a trailing slash, then a file is downloaded from the URL and copied to <dest>
-- If <src> is a URL and <dest> does end with a trailing slash, then the filename is inferred from the URL and the file is downloaded to <dest>/<filename>.
-- If <src> is a directory, the entire contents of the directory are copied, including filesystem metadata
-- If <src> is a local tar archive in a recognized compression format (identity, gzip, bzip2 or xz) then it is unpacked as a directory
-- If <src> is any other kind of file, it is copied individually along with its metadata
-- If multiple <src> resources are specified, either directly or due to the use of a wildcard, then <dest> must be a directory, and it must end with a slash /
-- If <dest> does not end with a trailing slash, it will be considered a regular file and the contents of <src> will be written at <dest>
-- If <dest> doesn’t exist, it is created along with all missing directories in its path
+Numerous rules
 
-COPY is more transparent than ADD. COPY only supports the basic copying of local files into the container, while ADD has some features (like local-only tar extraction and remote URL support) that are not immediately obvious. Consequently, the best use for ADD is local tar file auto-extraction into the image
+COPY
+
+- more transparent than ADD
+- only supports the basic copying of local files into the container,
+
+Some features for ADD has some features: local-only tar extraction and remote URL support
+
+Consequently, the best use for ADD is local tar file auto-extraction into the image
 
 ----
 
@@ -688,7 +763,11 @@ USER galaxy
 ...
 ```
 
-Note: sets the user name or UID to use when running the image and for any `RUN`, `CMD` and `ENTRYPOINT` instructions that follow it in the Dockerfile
+Note: 
+
+Sets the user name or UID to use  
+- when running the image
+- for any `RUN`, `CMD` and `ENTRYPOINT` instructions that follow it in the Dockerfile
 
 ----
 
@@ -700,7 +779,11 @@ WORKDIR $GALAXY_ROOT
 ...
 ```
 
-Note: sets the working directory for any `RUN`, `CMD`, `ENTRYPOINT`, `COPY` and `ADD` instructions that follow it in the Dockerfile
+Note: 
+
+- Sets the working directory for any `RUN`, `CMD`, `ENTRYPOINT`, `COPY` and `ADD` instructions that follow it in the Dockerfile
+- Created if it doesn’t exist
+- Possible multiple times
 
 ----
 
@@ -716,9 +799,11 @@ EXPOSE :9002
 ...
 ```
 
-Note: Informs Docker that the container listens on the specified network ports at runtime
+Note: 
 
-EXPOSE does not make the ports of the container accessible to the host. To do that, you must use either the -p flag to publish a range of ports or the -P flag to publish all of the exposed ports
+- Informs Docker that the container listens on the specified network ports at runtime
+- Does not make the ports of the container accessible to the host. 
+  `-p` flag to publish a range of ports or the `-P` flag to publish all of the exposed ports when `docker run
 
 ----
 
@@ -731,7 +816,32 @@ VOLUME ["/export/", "/data/", "/var/lib/docker"]
 ...
 ```
 
-Note: creates a mount point with the specified name and marks it as holding externally mounted volumes from native host or other containers
+Note: 
+
+- Creates a mount point with the specified name
+- Marks it as holding externally mounted volumes from native host or other containers
+
+Accessible from outside `docker inspect container_name` but not directly linked
+
+Data volume: specially-designated directory within one or more containers that bypasses the Union File System
+
+----
+
+### The instructions <br>[`VOLUME`](https://docs.docker.com/engine/reference/builder/#volume)
+#### Dockerfile example
+
+```sh
+FROM ubuntu
+RUN mkdir /myvol
+RUN echo "hello world" > /myvol/greeting
+VOLUME /myvol
+```
+
+Note: 
+
+Creation of an image that causes docker run, 
+- to create a new mount point at /myvol 
+- copy the greeting file into the newly created volume
 
 ----
 
@@ -745,21 +855,27 @@ CMD ["/usr/bin/startup"]
 
 Note:
 - only be one CMD instruction in a Dockerfile
-- The main purpose of a CMD is to provide defaults for an executing container
+- Provide defaults for an executing container
 
-----
-
-### Dockerfile & Layers
-
-![](images/dockerfile_layers.png)
 
 ----
 
 ### Creating the image
 
 ```sh
-bebatut$ docker build -f /path/to/a/Dockerfile .
+bebatut$ docker build .
+Sending build context to Docker daemon 49.15 kB
+Step 1 : FROM biocontainers/biocontainers:latest
+latest: Pulling from biocontainers/biocontainers
+
+
 ```
+----
+
+### Dockerfile & Layers
+
+![](images/dockerfile_layers.png)
+
 
 ----
 
