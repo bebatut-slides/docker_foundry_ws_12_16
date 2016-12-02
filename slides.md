@@ -336,15 +336,13 @@ root@7de97f8dd5eb:/cowsay#
 ### Control during startup
 
 ```
-bebatut$ docker run -i -t
-    -p 8080:80 -p 8021:21 -p 9002:9002
-    --privileged=true
-    -e "NONUSE=reports"
-    -e "GALAXY_CONFIG_ADMIN_USERS=albert@einstein.gov"
-    -e "GALAXY_CONFIG_MASTER_API_KEY=83D4jaba7330aDKHkakjGa937"
-    -e "GALAXY_CONFIG_BRAND='My own Galaxy flavour'"
-    -e "GALAXY_LOGGING=full"
-
+bebatut$ docker run -i -t \
+    -p 8080:80 -p 8021:21 -p 9002:9002 \
+    -e "NONUSE=reports" \
+    -e "GALAXY_CONFIG_ADMIN_USERS=albert@einstein.gov" \
+    -e "GALAXY_CONFIG_MASTER_API_KEY=83D4jaba7330aDKHkakjGa937" \
+    -e "GALAXY_CONFIG_BRAND='My own Galaxy flavour'" \
+    -e "GALAXY_LOGGING=full" \
     quay.io/bgruening/galaxy
 ```
 
