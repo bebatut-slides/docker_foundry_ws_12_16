@@ -864,11 +864,29 @@ Note:
 
 ```sh
 bebatut$ docker build .
-Sending build context to Docker daemon 49.15 kB
+Sending build context to Docker daemon  2.56 kB
 Step 1 : FROM biocontainers/biocontainers:latest
-latest: Pulling from biocontainers/biocontainers
-
-
+ ---> 78f76aa0b4ab
+Step 2 : LABEL base.image "biocontainers:latest"
+ ---> Running in bb45efa8fc7b
+ ---> 50804d9e831c
+Removing intermediate container bb45efa8fc7b
+Step 3 : LABEL version "2"
+ ---> Running in 5511ea44083a
+ ---> 675c5b11b226
+Removing intermediate container 5511ea44083a
+Step 4 : LABEL software "Samtools"
+ ---> Running in efdd16353421
+ ---> 4349329b8832
+Removing intermediate container efdd16353421
+Step 5 : LABEL software.version "1.3.1"
+ ---> Running in c698fe4a1bbe
+ ---> 8cb8534ed3cc
+Removing intermediate container c698fe4a1bbe
+Step 6 : LABEL description "Tools for manipulating next-generation sequencing data"
+ ---> Running in 3b64527a6f2e
+ ---> 097ee57996fa
+...
 ```
 ----
 
