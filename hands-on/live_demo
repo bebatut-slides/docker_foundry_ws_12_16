@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+docker pull hello-world
+
+docker run hello-world
+docker run docker/whalesay cowsay Galaxy
+docker run --help
+docker run -t -i docker/whalesay
+    cowsay Galaxy
+    exit
+
+mkdir data
+docker run docker/whalesay cowsay Galaxy > data/cowsay
+more data/cowsay
+docker run -t -i docker/whalesay
+    ls
+    # where is the cowsay file?
+    cowsay Hello Galaxy > cowsay2
+    exit
+# where is the cowsay2 file?
+
+ls data
+docker run -t -i -v $PWD/data:/data docker/whalesay
+    ls /data
+    cowsay Galaxy2 > /data/cowsay_Galaxy2
+    ls /data
+    exit
+ls data/
+
+docker run -d docker/whalesay /bin/sh -c "while true; do sleep 1; done"
+docker exec ... cowsay Galaxy
+
+docker stop ...
+docker exec ... cowsay Galaxy
+docker start ...
+docker exec ... cowsay Galaxy
+
+docker ps
+docker ps -a
+
+docker images
+
+
