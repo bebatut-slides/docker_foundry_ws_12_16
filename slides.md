@@ -41,14 +41,14 @@ How many of you have already
 
 ----
 
-### Deployment issues of bioinformatics tools
+### Deployment issues of bioinformatic tools
 
 - Different environments
 - Different OS
 - Different packaging
 - Conflict between tools or versions
 
-<i class="fa fa-long-arrow-right"></i> Impact on usuability and reproducibility
+<i class="fa fa-long-arrow-right"></i> Impact on usability and reproducibility
 
 ----
 
@@ -99,10 +99,10 @@ Note: A standard container
 
 ![](images/deployment_issue_docker.png)
 
-Note: Docker = An engine that encapsulated any tools as a 
+Note: Docker = An engine that encapsulates any tool as a 
 - lightweight
 - portable
-- self sufficient container
+- self-sufficient container
 - manipulated using standard operations
 - run consistently on virtually any hardware platform
 
@@ -184,7 +184,7 @@ Note: Docker Registry:
 - stateless
 - highly scalable server side application 
 
-to stores and distribute Docker images
+to store and distribute Docker images
 
 Example: docker hub, quay.io
 
