@@ -22,8 +22,8 @@ Please interrupt me if you have any question.
 
 How many of you have already
 - heard about Docker?
-- used Docker?
-- create a Docker container?
+- used Docker containers?
+- created a Docker images?
 
 ---
 
